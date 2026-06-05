@@ -1,11 +1,11 @@
 import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import API from '../api/axios';
 
-const Logo = () => (
-  <img src="/modelsuite-talents.png" alt="ModelSuite Talents Logo" className="w-80 h-auto object-contain mx-auto block hover:scale-105 transition-transform duration-300" />
-);
+// const Logo = () => (
+//   <img src="/modelsuite-talents.png" alt="ModelSuite Talents Logo" className="w-80 h-auto object-contain mx-auto block hover:scale-105 transition-transform duration-300" />
+// );
 
 const inputCls = 'w-full bg-bg-input border border-border rounded-[10px] px-4 py-3 text-[15px] text-text-primary outline-none placeholder:text-[#4e4a6e] focus:border-primary focus:ring-[3px] focus:ring-primary/20 transition-all duration-200 font-sans hover:border-border-light';
 const labelCls = 'text-[11px] font-semibold uppercase tracking-[0.6px] text-text-muted group-focus-within:text-primary transition-colors duration-200';
