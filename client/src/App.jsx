@@ -1,18 +1,19 @@
-﻿// import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-// import { AuthProvider, useAuth } from './context/AuthContext';
-// import LoginPage from './pages/LoginPage';
-// import RegisterPage from './pages/RegisterPage';
-// import AdminDashboard from './pages/admin/AdminDashboard';
-// import SubmissionsPage from './pages/admin/SubmissionsPage';
-// import TalentDashboard from './pages/talent/TalentDashboard';
-// import NotFoundPage from './pages/NotFoundPage';
-// "Unauthorized" message — confusing UX for the user
-// const PrivateRoute = ({ children, role }) => {
-//   const { user } = useAuth();
-//   if (!user) return <Navigate to="/login" replace />;
-//   if (role && user.role !== role) return <Navigate to="/login" replace />;
-//   return children;
-// };
+﻿import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { AuthProvider } from './context/AuthProvider';
+import { useAuth } from './context/useAuth';
+import LoginPage from './pages/LoginPage';
+import RegisterPage from './pages/RegisterPage';
+import AdminDashboard from './pages/admin/AdminDashboard';
+import SubmissionsPage from './pages/admin/SubmissionsPage';
+import TalentDashboard from './pages/talent/TalentDashboard';
+import NotFoundPage from './pages/NotFoundPage';
+
+const PrivateRoute = ({ children, role }) => {
+  const { user } = useAuth();
+  if (!user) return <Navigate to="/login" replace />;
+  if (role && user.role !== role) return <Navigate to="/login" replace />;
+  return children;
+};
 
 function App() {
   return (

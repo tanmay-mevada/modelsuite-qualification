@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
-// import TalentSidebar from '../../components/talent/TalentSidebar';
-// import AvailableTasksList from '../../components/talent/AvailableTasksList';
-// import MyTasksList from '../../components/talent/MyTasksList';
+import TalentSidebar from '../../components/talent/TalentSidebar';
+import AvailableTasksList from '../../components/talent/AvailableTasksList';
+import MyTasksList from '../../components/talent/MyTasksList';
 import { fetchAvailableTasks, fetchMyTasks } from '../../api/talent';
-import { useAuth } from '../../context/AuthContext';
+import { useAuth } from '../../context/AuthProvider';
 
 /* ── Wave emoji stripped, use clean greeting ── */
 

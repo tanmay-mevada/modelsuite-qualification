@@ -1,5 +1,5 @@
 import { useState } from 'react';
-// import SubmitTaskModal from './SubmitTaskModal';
+import SubmitTaskModal from './SubmitTaskModal';
 
 /* ── Status badge classes ── */
 const STATUS_CLASS = {
@@ -10,21 +10,21 @@ const STATUS_CLASS = {
   Rejected:  'status-badge-Rejected',
 };
 
-// /* ── Calendar icon ── */
-// const IconCalendar = () => (
-//   <svg width="12" height="12" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-//     <rect x="3" y="4" width="14" height="14" rx="2"/>
-//     <path d="M7 2v4M13 2v4M3 9h14"/>
-//   </svg>
-// );
+/* ── Calendar icon ── */
+const IconCalendar = () => (
+  <svg width="12" height="12" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+    <rect x="3" y="4" width="14" height="14" rx="2"/>
+    <path d="M7 2v4M13 2v4M3 9h14"/>
+  </svg>
+);
 
-// /* ── Upload icon ── */
-// const IconUpload = () => (
-//   <svg width="12" height="12" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-//     <path d="M10 14V4M6 8l4-4 4 4"/>
-//     <path d="M3 17h14"/>
-//   </svg>
-// );
+/* ── Upload icon ── */
+const IconUpload = () => (
+  <svg width="12" height="12" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M10 14V4M6 8l4-4 4 4"/>
+    <path d="M3 17h14"/>
+  </svg>
+);
 
 const fmtDate = (raw) => {
   if (!raw) return null;

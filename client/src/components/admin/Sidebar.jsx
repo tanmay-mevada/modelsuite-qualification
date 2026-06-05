@@ -1,5 +1,5 @@
 import { useNavigate, useLocation } from 'react-router-dom';
-import { useAuth } from '../../context/AuthContext';
+import { useAuth } from '../../context/useAuth';
 
 /* ── Clean SVG line-art icons (no emojis, no AI icons) ── */
 const IconDashboard = () => (
@@ -32,12 +32,12 @@ const IconTalents = () => (
   </svg>
 );
 
-// const IconLogout = () => (
-//   <svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-//     <path d="M13 10H3M13 10l-3-3M13 10l-3 3"/>
-//     <path d="M7 4H4a1 1 0 00-1 1v10a1 1 0 001 1h3"/>
-//   </svg>
-// );
+const IconLogout = () => (
+  <svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M13 10H3M13 10l-3-3M13 10l-3 3"/>
+    <path d="M7 4H4a1 1 0 00-1 1v10a1 1 0 001 1h3"/>
+  </svg>
+);
 
 const navItems = [
   { label: 'Dashboard',   path: '/admin/dashboard',   Icon: IconDashboard   },
@@ -69,7 +69,7 @@ const Sidebar = () => {
           Menu
         </p>
 
-        {navItems.map(({ label, path}) => {
+        {navItems.map(({ label, path, Icon }) => {
           const isActive = location.pathname === path;
           return (
             <button key={path}

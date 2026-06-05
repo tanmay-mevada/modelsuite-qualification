@@ -1,24 +1,24 @@
 import { useEffect, useState } from 'react';
-// import Sidebar from '../../components/admin/Sidebar';
-// import TasksTable from '../../components/admin/TasksTable';
-// import CreateTaskModal from '../../components/admin/CreateTaskModal';
-// import EditTaskModal from '../../components/admin/EditTaskModal';
+import Sidebar from '../../components/admin/Sidebar';
+import TasksTable from '../../components/admin/TasksTable';
+import CreateTaskModal from '../../components/admin/CreateTaskModal';
+import EditTaskModal from '../../components/admin/EditTaskModal';
 import { fetchAllTasks } from '../../api/tasks';
 
-// /* ── Search icon ── */
-// const IconSearch = () => (
-//   <svg width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-//     <circle cx="8.5" cy="8.5" r="5.5"/>
-//     <path d="M17 17l-4-4"/>
-//   </svg>
-// );
+/* ── Search icon ── */
+const IconSearch = () => (
+  <svg width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="8.5" cy="8.5" r="5.5"/>
+    <path d="M17 17l-4-4"/>
+  </svg>
+);
 
-// /* ── Plus icon ── */
-// const IconPlus = () => (
-//   <svg width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-//     <path d="M10 4v12M4 10h12"/>
-//   </svg>
-// );
+/* ── Plus icon ── */
+const IconPlus = () => (
+  <svg width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+    <path d="M10 4v12M4 10h12"/>
+  </svg>
+);
 
 const AdminDashboard = () => {
   const [tasks, setTasks]           = useState([]);

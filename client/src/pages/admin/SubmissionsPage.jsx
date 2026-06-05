@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-// import Sidebar from '../../components/admin/Sidebar';
-// import SubmissionReviewModal from '../../components/admin/SubmissionReviewModal';
+import Sidebar from '../../components/admin/Sidebar';
+import SubmissionReviewModal from '../../components/admin/SubmissionReviewModal';
 import { fetchAllSubmissions } from '../../api/submissions';
 
 const REVIEW_STATUS_CLASS = {
