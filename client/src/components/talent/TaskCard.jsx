@@ -1,4 +1,4 @@
-﻿import { claimTask } from '../../api/talent';
+import { claimTask } from '../../api/talent';
 
 const STATUS_CLASS = {
   Open:      'status-badge-Open',
@@ -11,6 +11,7 @@ const STATUS_CLASS = {
 const TaskCard = ({ task, showClaimButton = false, onClaimed }) => {
 
   const handleClaim = async () => {
+    if (!window.confirm(`Claim "${task.title}"? You can only hold one task at a time.`)) return;
     try {
       await claimTask(task._id);
       if (onClaimed) onClaimed();
