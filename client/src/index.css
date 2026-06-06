@@ -425,6 +425,11 @@ input, select, textarea {
   font-family: 'Inter', sans-serif;
 }
 
+option {
+  background-color: #0D0D0D;
+  color: #F0F0F0;
+}
+
 /* Custom select chevron */
 .custom-select {
   appearance: none;
