@@ -1,10 +1,11 @@
-﻿import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider } from './context/AuthProvider';
 import { useAuth } from './context/useAuth';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import AdminDashboard from './pages/admin/AdminDashboard';
 import SubmissionsPage from './pages/admin/SubmissionsPage';
+import TalentsPage from './pages/admin/TalentsPage';
 import TalentDashboard from './pages/talent/TalentDashboard';
 import NotFoundPage from './pages/NotFoundPage';
 
@@ -53,6 +54,14 @@ function App() {
             element={
               <PrivateRoute role="Admin">
                 <SubmissionsPage />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/admin/talents"
+            element={
+              <PrivateRoute role="Admin">
+                <TalentsPage />
               </PrivateRoute>
             }
           />
