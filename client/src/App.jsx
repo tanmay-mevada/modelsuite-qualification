@@ -7,6 +7,7 @@ import AdminDashboard from './pages/admin/AdminDashboard';
 import SubmissionsPage from './pages/admin/SubmissionsPage';
 import TalentsPage from './pages/admin/TalentsPage';
 import TalentDashboard from './pages/talent/TalentDashboard';
+import TalentTasksPage from './pages/talent/TalentTasksPage';
 import NotFoundPage from './pages/NotFoundPage';
 
 const PrivateRoute = ({ children, role }) => {
@@ -46,6 +47,14 @@ function App() {
             element={
               <PrivateRoute role="Talent">
                 <TalentDashboard />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/talent/tasks"
+            element={
+              <PrivateRoute role="Talent">
+                <TalentTasksPage />
               </PrivateRoute>
             }
           />

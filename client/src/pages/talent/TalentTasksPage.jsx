@@ -1,21 +1,19 @@
 import { useEffect, useState } from 'react';
 import TalentSidebar from '../../components/talent/TalentSidebar';
-import AvailableTasksList from '../../components/talent/AvailableTasksList';
-import { fetchAvailableTasks } from '../../api/talent';
-import { useAuth } from '../../context/useAuth';
+import MyTasksList from '../../components/talent/MyTasksList';
+import { fetchMyTasks } from '../../api/talent';
 
-const TalentDashboard = () => {
-  const { user } = useAuth();
-  const [availableTasks, setAvailableTasks] = useState([]);
-  const [error, setError] = useState(null);
+const TalentTasksPage = () => {
+  const [myTasks, setMyTasks] = useState([]);
+  const [error, setError]     = useState(null);
 
-  const loadAvailable = async () => {
-    try { const { data } = await fetchAvailableTasks(); setAvailableTasks(data); }
-    catch { setError('Failed to load available tasks'); }
+  const loadMyTasks = async () => {
+    try { const { data } = await fetchMyTasks(); setMyTasks(data); }
+    catch { setError('Failed to load your tasks'); }
   };
 
   // eslint-disable-next-line
-  useEffect(() => { loadAvailable(); }, []);
+  useEffect(() => { loadMyTasks(); }, []);
 
   return (
     <div className="flex min-h-screen" style={{ background: '#050505' }}>
@@ -27,10 +25,10 @@ const TalentDashboard = () => {
         <div className="mb-7 page-section">
           <h1 className="text-[22px] font-semibold tracking-tight"
             style={{ color: '#F0F0F0', fontFamily: 'Poppins, sans-serif' }}>
-            Welcome back, {user?.name?.split(' ')[0]}
+            My Tasks
           </h1>
           <p className="mt-0.5 text-[13px]" style={{ color: '#6B7280' }}>
-            Browse available tasks below and claim one to get started.
+            Tasks you have claimed. Submit your work once complete.
           </p>
         </div>
 
@@ -41,12 +39,11 @@ const TalentDashboard = () => {
           </p>
         )}
 
-        {/* Available Tasks */}
-        <section className="mb-7 page-section">
+        <section className="page-section">
           <div className="flex items-center gap-2.5 mb-4">
             <h2 className="text-[11px] font-semibold uppercase tracking-[0.1em]"
               style={{ color: '#4B5563', fontFamily: 'Inter, sans-serif' }}>
-              Available Tasks
+              Claimed Tasks
             </h2>
             <span className="text-[10.5px] px-2 py-0.5 rounded-full"
               style={{
@@ -54,15 +51,14 @@ const TalentDashboard = () => {
                 color: '#6B7280',
                 border: '1px solid rgba(255,255,255,0.08)',
               }}>
-              {availableTasks.length}
+              {myTasks.length}
             </span>
           </div>
-          <AvailableTasksList tasks={availableTasks} onClaimed={loadAvailable} />
+          <MyTasksList tasks={myTasks} onRefresh={loadMyTasks} />
         </section>
       </main>
     </div>
   );
 };
 
-export default TalentDashboard;
-
+export default TalentTasksPage;
