@@ -2,6 +2,14 @@ import { useEffect, useState } from 'react';
 import Sidebar from '../../components/admin/Sidebar';
 import API from '../../api/axios';
 
+/* ── Search icon ── */
+const IconSearch = () => (
+  <svg width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="8.5" cy="8.5" r="5.5"/>
+    <path d="M17 17l-4-4"/>
+  </svg>
+);
+
 const TalentsPage = () => {
   const [talents, setTalents] = useState([]);
   const [search, setSearch] = useState('');
@@ -29,14 +37,6 @@ const TalentsPage = () => {
 
   const thCls = 'text-left px-5 py-3 text-[11px] font-semibold uppercase tracking-[0.7px] whitespace-nowrap border-b border-border';
   const tdCls = 'px-5 py-4 border-b border-border align-middle';
-
-  /* ── Search icon ── */
-  const IconSearch = () => (
-    <svg width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-      <circle cx="8.5" cy="8.5" r="5.5"/>
-      <path d="M17 17l-4-4"/>
-    </svg>
-  );
 
   return (
     <div className="flex min-h-screen" style={{ background: '#050505' }}>
