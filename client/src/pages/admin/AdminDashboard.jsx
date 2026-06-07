@@ -43,14 +43,14 @@ const AdminDashboard = () => {
     total:     tasks.length,
     open:      tasks.filter((t) => t.status === 'Open').length,
     submitted: tasks.filter((t) => t.status === 'Submitted').length,
-    approved:  tasks.filter((t) => t.status === 'Approved').length,
+    completed: tasks.filter((t) => t.status === 'Completed').length,
   };
 
   const statCards = [
     { label: 'Total Tasks', value: stats.total,     colorClass: 'stat-card-default', valueColor: '#E5E2E1' },
     { label: 'Open',        value: stats.open,      colorClass: 'stat-card-blue',    valueColor: '#60A5FA' },
     { label: 'Submitted',   value: stats.submitted, colorClass: 'stat-card-info',    valueColor: '#60A5FA' },
-    { label: 'Approved',    value: stats.approved,  colorClass: 'stat-card-green',   valueColor: '#34D399' },
+    { label: 'Completed',   value: stats.completed, colorClass: 'stat-card-green',   valueColor: '#34D399' },
   ];
 
   /* Filter tasks */
@@ -152,6 +152,7 @@ const AdminDashboard = () => {
                 <option value="Submitted">Submitted</option>
                 <option value="Approved">Approved</option>
                 <option value="Rejected">Rejected</option>
+                <option value="Completed">Completed</option>
               </select>
             </div>
           </div>
