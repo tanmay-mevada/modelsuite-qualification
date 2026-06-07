@@ -6,6 +6,7 @@ const STATUS_CLASS = {
   Submitted: 'status-badge-Submitted',
   Approved:  'status-badge-Approved',
   Rejected:  'status-badge-Rejected',
+  Completed: 'status-badge-Completed',
 };
 
 const TaskCard = ({ task, showClaimButton = false, onClaimed }) => {

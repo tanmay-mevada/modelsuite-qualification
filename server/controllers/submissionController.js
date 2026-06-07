@@ -1,4 +1,4 @@
-﻿const Submission = require('../models/Submission');
+const Submission = require('../models/Submission');
 const Task = require('../models/Task');
 
 // @desc  Submit a task with a file upload
@@ -84,7 +84,6 @@ const reviewSubmission = async (req, res) => {
   const { reviewStatus } = req.body;
 
   try {
-    // — any string is accepted and stored
     const submission = await Submission.findByIdAndUpdate(
       req.params.id,
       { reviewStatus },
@@ -96,8 +95,11 @@ const reviewSubmission = async (req, res) => {
     if (!submission) {
       return res.status(404).json({ message: 'Submission not found' });
     }
-    // — task stays 'Submitted' even after the submission is Approved/Rejected
-    // Proper flow: also update Task.status to 'Approved'/'Rejected'
+
+    // Cascade status to the parent task
+    // 'Approved' submission → task moves to 'Completed'; 'Rejected' stays as 'Rejected'
+    const taskStatus = reviewStatus === 'Approved' ? 'Completed' : 'Rejected';
+    await Task.findByIdAndUpdate(submission.taskId, { status: taskStatus });
 
     res.json(submission);
   } catch (error) {
